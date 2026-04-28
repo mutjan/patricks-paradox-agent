@@ -21,6 +21,24 @@ access.
 
 The default workflow uses the log patch instead of screenshots.
 
+## Risk Warning
+
+This toolkit modifies the local Patrick's Parabox Demo assembly
+(`Assembly-CSharp.dll`) to add log-based state observation. The installer creates
+a backup next to the original DLL and provides a restore command, but this is
+still a game-file patch. Quit the game before installing or restoring the patch,
+and restart the game afterward so Unity loads the intended DLL.
+
+Steam updates or game file verification may overwrite the patched assembly. If
+the game behaves unexpectedly, restore the original DLL:
+
+```bash
+python3 scripts/install_patrick_patch.py --restore
+```
+
+macOS may also require local permissions for input automation. Grant these only
+to the terminal or agent process you trust.
+
 ## Installation
 
 1. Clone or copy this repository.
@@ -212,13 +230,15 @@ not part of the public toolkit.
 
 ## Permissions
 
-The toolkit needs local permissions only:
+The toolkit needs local permissions only. It does not need network access for
+normal use.
 
-- read/write access to the game's `Assembly-CSharp.dll` while installing or restoring the patch
-- read access to Unity's `Player.log`
-- read access to the Patrick's Parabox save file when checking progress
-- Accessibility permission for automated key input
-- Automation permission if macOS asks to let the terminal or agent control `System Events` or Patrick's Parabox
+- Read/write access to the game's `Assembly-CSharp.dll` while installing or restoring the patch.
+- Read access to Unity's `Player.log` for live player and block coordinates.
+- Read access to Patrick's Parabox save files when checking hub progress.
+- macOS Accessibility permission for automated key input.
+- macOS Automation permission if prompted to let the terminal or agent control `System Events` or Patrick's Parabox.
+- Xcode Command Line Tools permission/toolchain access if the CoreGraphics key helper needs to be compiled.
 
 ## Changelog
 
