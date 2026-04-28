@@ -1,0 +1,42 @@
+# Local machine configuration
+patrick_config.json
+.DS_Store
+.deepseek/
+
+# Python/runtime cache
+__pycache__/
+scripts/__pycache__/
+*.py[cod]
+
+# Compiled local input helper
+scripts/patrick_cgevent_keys
+
+# Local captures and logs
+*.log
+*.png
+*.jpg
+*.jpeg
+
+# Local-only challenge scripts that should not be shipped.
+local_challenge_artifacts/
+
+# Challenge-specific experiments, solvers, route finders, and replayers.
+# These are useful scratch files during a run, but they leak puzzle structure
+# or hand-tuned strategy and should not be given to a fresh challenge agent.
+scripts/patrick_play_level.py
+scripts/patrick_walk_moves.py
+scripts/route_patrick_map.py
+scripts/solve_correct_outer.py
+scripts/solve_patrick_recursive.py
+scripts/solve_patrick_simple.py
+scripts/route_*.py
+scripts/solve_*.py
+scripts/*play_level.py
+scripts/*replay*.py
+scripts/*_solver.py
+scripts/*_solution.py
+scripts/*_scratch.py
+scripts/*_experiment.py
+scripts/*_route.py
+scripts/*_routes.py
+scripts/*walk_moves.py
